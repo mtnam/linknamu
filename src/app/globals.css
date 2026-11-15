@@ -3,21 +3,40 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #3a2a20;
+  --background: #fff8ef;
+  /* 크림색 → 연한 살구색, 위쪽에 은은한 빛 번짐 */
+  --background-gradient:
+    radial-gradient(60rem 40rem at 50% -10%, rgba(255, 255, 255, 0.85), transparent 60%),
+    radial-gradient(40rem 30rem at 100% 100%, rgba(255, 196, 160, 0.35), transparent 70%),
+    linear-gradient(180deg, #fff8ef 0%, #fdeedd 50%, #fbdcc6 100%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #f4e9df;
+    --background: #1b1411;
+    --background-gradient:
+      radial-gradient(60rem 40rem at 50% -10%, rgba(255, 190, 150, 0.12), transparent 60%),
+      radial-gradient(40rem 30rem at 100% 100%, rgba(214, 120, 70, 0.14), transparent 70%),
+      linear-gradient(180deg, #1b1411 0%, #22170f 50%, #2b1b12 100%);
   }
 }
 
-body {
-  color: var(--foreground);
+html {
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  color: var(--foreground);
+  background: var(--background-gradient);
+  background-attachment: fixed;
+  font-family:
+    "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  word-break: keep-all;
 }
 
 @layer utilities {
